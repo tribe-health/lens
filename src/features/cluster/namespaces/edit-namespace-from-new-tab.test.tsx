@@ -880,35 +880,6 @@ metadata:
             });
           });
 
-          describe("when call for namespace resolves without namespace", () => {
-            beforeEach(async () => {
-              await callForNamespaceMock.resolve({
-                callWasSuccessful: true,
-                response: undefined,
-              });
-            });
-
-            it("renders", () => {
-              expect(rendered.baseElement).toMatchSnapshot();
-            });
-
-            it("still shows the dock tab for editing namespace", () => {
-              expect(
-                rendered.getByTestId("dock-tab-for-some-first-tab-id"),
-              ).toBeInTheDocument();
-            });
-
-            it("shows error message", () => {
-              expect(
-                rendered.getByTestId("dock-tab-content-for-some-first-tab-id"),
-              ).toHaveTextContent("Resource not found");
-            });
-
-            it("does not show error notification", () => {
-              expect(showErrorNotificationMock).not.toHaveBeenCalled();
-            });
-          });
-
           describe("when call for namespace resolves with failure", () => {
             beforeEach(async () => {
               await callForNamespaceMock.resolve({
