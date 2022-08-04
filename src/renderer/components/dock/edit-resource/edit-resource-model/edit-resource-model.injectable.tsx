@@ -140,8 +140,6 @@ export class EditResourceModel {
     if (result?.response?.metadata.labels?.[EditResourceLabelName]) {
       const parsed = parseKubeApi(this.selfLink);
 
-      console.log(parsed);
-
       parsed.apiVersion = result.response.metadata.labels[EditResourceLabelName];
 
       result = await this.dependencies.callForResource(createKubeApiURL(parsed));
@@ -188,8 +186,6 @@ export class EditResourceModel {
     currentVersion.metadata.labels[EditResourceLabelName] = currentVersion.apiVersion.split("/").pop();
 
     const patches = createPatch(firstVersion, currentVersion);
-
-    console.log(patches);
     const selflink = getEditSelfLinkFor(currentVersion);
     const result = await this.dependencies.callForPatchResource(this.resource, patches);
 

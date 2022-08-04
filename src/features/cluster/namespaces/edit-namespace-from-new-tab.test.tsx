@@ -259,10 +259,16 @@ metadata:
                 expect(rendered.baseElement).toMatchSnapshot();
               });
 
-              it("calls for save with empty values", () => {
+              it("calls for save with just the adding version label", () => {
                 expect(callForPatchNamespaceMock).toHaveBeenCalledWith(
                   someNamespace,
-                  [],
+                  [{
+                    op: "add",
+                    path: "/metadata/labels",
+                    value: {
+                      "k8slens-edit-resource-version": "some-api-version",
+                    },
+                  }],
                 );
               });
 
@@ -568,6 +574,13 @@ metadata:
                         value: "some-new-value",
                       },
                       {
+                        op: "add",
+                        path: "/metadata/labels",
+                        value: {
+                          "k8slens-edit-resource-version": "some-api-version",
+                        },
+                      },
+                      {
                         op: "replace",
                         path: "/metadata/somePropertyToBeChanged",
                         value: "some-changed-value",
@@ -794,7 +807,7 @@ metadata:
 `);
                 });
 
-                it("when selecting to save, calls for save of second namespace", () => {
+                it("when selecting to save, calls for save of second namespace with just the add edit version label", () => {
                   callForPatchNamespaceMock.mockClear();
 
                   const saveButton = rendered.getByTestId(
@@ -805,7 +818,13 @@ metadata:
 
                   expect(callForPatchNamespaceMock).toHaveBeenCalledWith(
                     someOtherNamespace,
-                    [],
+                    [{
+                      op: "add",
+                      path: "/metadata/labels",
+                      value: {
+                        "k8slens-edit-resource-version": "some-api-version",
+                      },
+                    }],
                   );
                 });
 
@@ -861,7 +880,7 @@ metadata:
 `);
                   });
 
-                  it("when selecting to save, calls for save of first namespace", () => {
+                  it("when selecting to save, calls for save of first namespace with just the new edit version label", () => {
                     callForPatchNamespaceMock.mockClear();
 
                     const saveButton = rendered.getByTestId(
@@ -872,7 +891,13 @@ metadata:
 
                     expect(callForPatchNamespaceMock).toHaveBeenCalledWith(
                       someNamespace,
-                      [],
+                      [ {
+                        op: "add",
+                        path: "/metadata/labels",
+                        value: {
+                          "k8slens-edit-resource-version": "some-api-version",
+                        },
+                      }],
                     );
                   });
                 });
