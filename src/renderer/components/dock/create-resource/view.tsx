@@ -6,7 +6,7 @@
 import React from "react";
 import type { SelectOption } from "../../select";
 import { Select } from "../../select";
-import yaml from "js-yaml";
+import yaml, { dump } from "js-yaml";
 import type { IComputedValue } from "mobx";
 import { makeObservable, observable } from "mobx";
 import { observer } from "mobx-react";
@@ -14,7 +14,6 @@ import type { CreateResourceTabStore } from "./store";
 import type { DockTab } from "../dock/store";
 import { EditorPanel } from "../editor-panel";
 import { InfoPanel } from "../info-panel";
-import * as resourceApplierApi from "../../../../common/k8s-api/endpoints/resource-applier.api";
 import { Notifications } from "../../notifications";
 import logger from "../../../../common/logger";
 import type { ApiManager } from "../../../../common/k8s-api/api-manager";
@@ -29,6 +28,8 @@ import type { GetDetailsUrl } from "../../kube-detail-params/get-details-url.inj
 import apiManagerInjectable from "../../../../common/k8s-api/api-manager/manager.injectable";
 import getDetailsUrlInjectable from "../../kube-detail-params/get-details-url.injectable";
 import navigateInjectable from "../../../navigation/navigate.injectable";
+import type { RequestKubeObjectCreation } from "../../../../common/k8s-api/endpoints/resource-applier.api/update.injectable";
+import requestKubeObjectCreationInjectable from "../../../../common/k8s-api/endpoints/resource-applier.api/update.injectable";
 
 export interface CreateResourceProps {
   tab: DockTab;
@@ -40,6 +41,7 @@ interface Dependencies {
   apiManager: ApiManager;
   navigate: Navigate;
   getDetailsUrl: GetDetailsUrl;
+  requestKubeObjectCreation: RequestKubeObjectCreation;
 }
 
 @observer
@@ -69,7 +71,7 @@ class NonInjectedCreateResource extends React.Component<CreateResourceProps & De
   };
 
   create = async (): Promise<void> => {
-    const { apiManager, getDetailsUrl, navigate } = this.props;
+    const { apiManager, getDetailsUrl, navigate, requestKubeObjectCreation } = this.props;
 
     if (this.error || !this.data?.trim()) {
       // do not save when field is empty or there is an error
@@ -85,7 +87,7 @@ class NonInjectedCreateResource extends React.Component<CreateResourceProps & De
 
     const creatingResources = resources.map(async (resource) => {
       try {
-        const data = await resourceApplierApi.update(resource);
+        const data = await requestKubeObjectCreation(dump(resource));
         const { kind, apiVersion, metadata: { name, namespace }} = data;
 
         const showDetails = () => {
@@ -169,5 +171,6 @@ export const CreateResource = withInjectables<Dependencies, CreateResourceProps>
     apiManager: di.inject(apiManagerInjectable),
     getDetailsUrl: di.inject(getDetailsUrlInjectable),
     navigate: di.inject(navigateInjectable),
+    requestKubeObjectCreation: di.inject(requestKubeObjectCreationInjectable),
   }),
 });
