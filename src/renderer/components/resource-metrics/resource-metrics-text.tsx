@@ -4,14 +4,23 @@
  */
 
 import React from "react";
-import type { PodMetricData } from "../../../common/k8s-api/endpoints";
+import type { MetricData } from "../../../common/k8s-api/endpoints/metrics.api";
 import { getMetricLastPoints } from "../../../common/k8s-api/endpoints/metrics.api";
 import { bytesToUnits } from "../../utils";
 import { Badge } from "../badge";
 import { DrawerItem } from "../drawer";
 
+export interface ResourceMetricsTextMetrics {
+  cpuUsage?: MetricData;
+  cpuRequests?: MetricData;
+  cpuLimits?: MetricData;
+  memoryUsage?: MetricData;
+  memoryRequests?: MetricData;
+  memoryLimits?: MetricData;
+}
+
 export interface ResourceMetricsTextProps {
-  metrics: PodMetricData | null | undefined;
+  metrics: ResourceMetricsTextMetrics | null | undefined;
 }
 
 export function ResourceMetricsText({ metrics }: ResourceMetricsTextProps) {
@@ -19,7 +28,14 @@ export function ResourceMetricsText({ metrics }: ResourceMetricsTextProps) {
     return null;
   }
 
-  const { cpuUsage, cpuRequests, cpuLimits, memoryUsage, memoryRequests, memoryLimits } = getMetricLastPoints(metrics);
+  const {
+    cpuUsage = 0,
+    cpuRequests = 0,
+    cpuLimits = 0,
+    memoryUsage = 0,
+    memoryRequests = 0,
+    memoryLimits = 0,
+  } = getMetricLastPoints(metrics);
 
   return (
     <>
