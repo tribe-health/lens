@@ -6,8 +6,8 @@ import { getInjectable } from "@ogre-tools/injectable";
 import { HelmChartManager } from "../helm-chart-manager";
 import getActiveHelmRepositoryInjectable from "../repositories/get-active-helm-repository.injectable";
 
-const getHelmChartInjectable = getInjectable({
-  id: "get-helm-chart",
+const getHelmChartReadmeInjectable = getInjectable({
+  id: "get-helm-chart-readme",
 
   instantiate: (di) => {
     const getActiveHelmRepository = di.inject(getActiveHelmRepositoryInjectable);
@@ -19,16 +19,11 @@ const getHelmChartInjectable = getInjectable({
         return undefined;
       }
 
-      const chartManager = HelmChartManager.forRepo(repo);
-
-      return {
-        readme: await chartManager.getReadme(chartName, version),
-        versions: await chartManager.chartVersions(chartName),
-      };
+      return HelmChartManager.forRepo(repo).getReadme(chartName, version);
     };
   },
 
   causesSideEffects: true,
 });
 
-export default getHelmChartInjectable;
+export default getHelmChartReadmeInjectable;
