@@ -68,6 +68,7 @@ import forceUpdateModalRootFrameComponentInjectable from "./application-update/f
 import legacyOnChannelListenInjectable from "./ipc/legacy-channel-listen.injectable";
 import getEntitySettingCommandsInjectable from "./components/command-palette/registered-commands/get-entity-setting-commands.injectable";
 import storageSaveDelayInjectable from "./utils/create-storage/storage-save-delay.injectable";
+import environmentVariablesInjectable from "../common/utils/environment-variables.injectable";
 import type { GlobalOverride } from "../common/test-utils/get-global-override";
 
 export const getDiForUnitTesting = (opts: { doGeneralOverrides?: boolean } = {}) => {
@@ -156,6 +157,7 @@ export const getDiForUnitTesting = (opts: { doGeneralOverrides?: boolean } = {})
       }));
     });
 
+    di.override(environmentVariablesInjectable, () => ({}));
     di.override(watchHistoryStateInjectable, () => () => () => {});
     di.override(openAppContextMenuInjectable, () => () => {});
     di.override(goBackInjectable, () => () => {});
