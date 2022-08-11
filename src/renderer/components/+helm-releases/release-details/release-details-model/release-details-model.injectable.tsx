@@ -6,8 +6,8 @@ import { getInjectable, lifecycleEnum } from "@ogre-tools/injectable";
 import type { IObservableValue } from "mobx";
 import { runInAction, action, observable, computed } from "mobx";
 import type { TargetHelmRelease } from "../target-helm-release.injectable";
-import type { RequestHelmRelease, DetailedHelmRelease } from "./request-helm-release.injectable";
-import requestHelmReleaseInjectable from "./request-helm-release.injectable";
+import type { RequestDetailedHelmRelease, DetailedHelmRelease } from "./request-detailed-helm-release.injectable";
+import requestDetailedHelmReleaseInjectable from "./request-detailed-helm-release.injectable";
 import type { ThemeStore } from "../../../../themes/store";
 import themeStoreInjectable from "../../../../themes/store.injectable";
 import type { RequestHelmReleaseConfiguration } from "../../../../../common/k8s-api/endpoints/helm-releases.api/get-configuration.injectable";
@@ -40,7 +40,7 @@ const releaseDetailsModelInjectable = getInjectable({
     const withOrphanPromise = di.inject(withOrphanPromiseInjectable);
 
     const model = new ReleaseDetailsModel({
-      requestHelmRelease: di.inject(requestHelmReleaseInjectable),
+      requestHelmRelease: di.inject(requestDetailedHelmReleaseInjectable),
       targetRelease,
       themeStore: di.inject(themeStoreInjectable),
       requestHelmReleaseConfiguration: di.inject(requestHelmReleaseConfigurationInjectable),
@@ -83,7 +83,7 @@ export interface ConfigurationInput {
 }
 
 interface Dependencies {
-  requestHelmRelease: RequestHelmRelease;
+  requestHelmRelease: RequestDetailedHelmRelease;
   targetRelease: TargetHelmRelease;
   themeStore: ThemeStore;
   requestHelmReleaseConfiguration: RequestHelmReleaseConfiguration;
