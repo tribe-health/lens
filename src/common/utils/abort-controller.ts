@@ -16,3 +16,9 @@ export class WrappedAbortController extends AbortController {
     });
   }
 }
+
+export function setTimeoutFor(controller: AbortController, timeout: number): void {
+  const handle = setTimeout(() => controller.abort(new Error("timeout")), timeout);
+
+  controller.signal.addEventListener("abort", () => clearTimeout(handle));
+}

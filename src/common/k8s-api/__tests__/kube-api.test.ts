@@ -8,30 +8,37 @@ import type { KubeJsonApi, KubeJsonApiData } from "../kube-json-api";
 import { PassThrough } from "stream";
 import type { ApiManager } from "../api-manager";
 import { Deployment, DeploymentApi, Ingress, IngressApi, NamespaceApi, Pod, PodApi } from "../endpoints";
-import { getDiForUnitTesting } from "../../../renderer/getDiForUnitTesting";
+import { getDiForUnitTesting } from "../../../main/getDiForUnitTesting";
 import apiManagerInjectable from "../api-manager/manager.injectable";
 import autoRegistrationInjectable from "../api-manager/auto-registration.injectable";
 import type { Fetch } from "../../fetch/fetch.injectable";
 import fetchInjectable from "../../fetch/fetch.injectable";
 import type { CreateKubeApiForRemoteCluster } from "../create-kube-api-for-remote-cluster.injectable";
 import createKubeApiForRemoteClusterInjectable from "../create-kube-api-for-remote-cluster.injectable";
-import { Response } from "node-fetch";
+import type { Response as ResponseConstructor } from "node-fetch";
 import type { AsyncFnMock } from "@async-fn/jest";
 import asyncFn from "@async-fn/jest";
 import { flushPromises } from "../../test-utils/flush-promises";
 import createKubeJsonApiInjectable from "../create-kube-json-api.injectable";
 import type { IKubeWatchEvent } from "../kube-watch-event";
 import type { KubeJsonApiDataFor } from "../kube-object";
+import fetchImplInjectable from "../../../main/fetch/fetch-impl.injectable";
 
 describe("createKubeApiForRemoteCluster", () => {
   let createKubeApiForRemoteCluster: CreateKubeApiForRemoteCluster;
   let fetchMock: AsyncFnMock<Fetch>;
+  let Response: typeof ResponseConstructor;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     const di = getDiForUnitTesting({ doGeneralOverrides: true });
 
     fetchMock = asyncFn();
     di.override(fetchInjectable, () => fetchMock);
+
+    di.permitSideEffects(fetchImplInjectable);
+    di.unoverride(fetchImplInjectable);
+
+    ({ Response } = await di.inject(fetchImplInjectable));
 
     createKubeApiForRemoteCluster = di.inject(createKubeApiForRemoteClusterInjectable);
   });
@@ -116,12 +123,18 @@ describe("KubeApi", () => {
   let request: KubeJsonApi;
   let registerApiSpy: jest.SpiedFunction<ApiManager["registerApi"]>;
   let fetchMock: AsyncFnMock<Fetch>;
+  let Response: typeof ResponseConstructor;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     const di = getDiForUnitTesting({ doGeneralOverrides: true });
 
     fetchMock = asyncFn();
     di.override(fetchInjectable, () => fetchMock);
+
+    di.permitSideEffects(fetchImplInjectable);
+    di.unoverride(fetchImplInjectable);
+
+    ({ Response } = await di.inject(fetchImplInjectable));
 
     const createKubeJsonApi = di.inject(createKubeJsonApiInjectable);
 

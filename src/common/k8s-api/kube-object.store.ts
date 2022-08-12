@@ -21,9 +21,6 @@ import assert from "assert";
 import type { PartialDeep } from "type-fest";
 import { entries } from "../utils/objects";
 
-// TODO: upgrade node-fetch once we are starting to use ES modules
-type LegacyAbortSignal = NonNullable<RequestInit["signal"]>;
-
 export type OnLoadFailure = (error: unknown) => void;
 
 export interface KubeObjectStoreLoadingParams {
@@ -479,8 +476,7 @@ export abstract class KubeObjectStore<
       callback,
     });
 
-    // TODO: upgrade node-fetch once we are starting to use ES modules
-    const signal = abortController.signal as LegacyAbortSignal;
+    const signal = abortController.signal;
 
     const callback: KubeApiWatchCallback<D> = (data, error) => {
       if (!this.isLoaded || error?.type === "aborted") return;
