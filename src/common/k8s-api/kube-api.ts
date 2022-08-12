@@ -7,7 +7,6 @@
 
 import { merge } from "lodash";
 import { stringify } from "querystring";
-import { apiKube } from "./index";
 import { createKubeApiURL, parseKubeApi } from "./kube-api-parse";
 import type { KubeObjectConstructor, KubeJsonApiDataFor, KubeObjectMetadata } from "./kube-object";
 import { KubeObject, KubeStatus, isKubeStatusData } from "./kube-object";
@@ -23,6 +22,8 @@ import type { PartialDeep } from "type-fest";
 import logger from "../logger";
 import { Environments, getEnvironmentSpecificLegacyGlobalDiForExtensionApi } from "../../extensions/as-legacy-globals-for-extension-api/legacy-global-di-for-extension-api";
 import autoRegistrationEmitterInjectable from "./api-manager/auto-registration-emitter.injectable";
+import { asLegacyGlobalForExtensionApi } from "../../extensions/as-legacy-globals-for-extension-api/as-legacy-global-object-for-extension-api";
+import { apiKubeInjectionToken } from "./api-kube";
 
 // TODO: upgrade node-fetch once we are starting to use ES modules
 type LegacyAbortSignal = NonNullable<RequestInit["signal"]>;
@@ -238,7 +239,7 @@ export class KubeApi<
   constructor(opts: KubeApiOptions<Object, Data>) {
     const {
       objectConstructor,
-      request = apiKube,
+      request,
       kind = objectConstructor.kind,
       isNamespaced,
       apiBase: fullApiPathname = objectConstructor.apiBase,
@@ -264,7 +265,7 @@ export class KubeApi<
     this.apiGroup = apiGroup;
     this.apiVersion = apiVersion;
     this.apiResource = resource;
-    this.request = request;
+    this.request = request ?? asLegacyGlobalForExtensionApi(apiKubeInjectionToken);
     this.objectConstructor = objectConstructor;
     legacyRegisterApi(this);
   }
