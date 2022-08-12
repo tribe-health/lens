@@ -34,7 +34,6 @@ import broadcastMessageInjectable from "../common/ipc/broadcast-message.injectab
 import apiManagerInjectable from "../common/k8s-api/api-manager/manager.injectable";
 import ipcRendererInjectable from "./utils/channel/ipc-renderer.injectable";
 import type { IpcRenderer } from "electron";
-import setupOnApiErrorListenersInjectable from "./api/setup-on-api-errors.injectable";
 import { observable, computed } from "mobx";
 import defaultShellInjectable from "./components/+preferences/default-shell.injectable";
 import appVersionInjectable from "../common/vars/app-version.injectable";
@@ -188,7 +187,7 @@ export const getDiForUnitTesting = (opts: { doGeneralOverrides?: boolean } = {})
     di.override(fileSystemProvisionerStoreInjectable, () => ({}) as FileSystemProvisionerStore);
 
     di.override(setupSystemCaInjectable, () => ({ run: () => {} }));
-    di.override(setupOnApiErrorListenersInjectable, () => ({ run: () => {} }));
+    di.override(provideInitialValuesForSyncBoxesInjectable, () => ({ run: () => {} }));
 
     di.override(defaultShellInjectable, () => "some-default-shell");
 
