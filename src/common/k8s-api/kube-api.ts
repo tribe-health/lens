@@ -239,7 +239,7 @@ export class KubeApi<
   constructor(opts: KubeApiOptions<Object, Data>) {
     const {
       objectConstructor,
-      request,
+      request = asLegacyGlobalForExtensionApi(apiKubeInjectionToken),
       kind = objectConstructor.kind,
       isNamespaced,
       apiBase: fullApiPathname = objectConstructor.apiBase,
@@ -265,7 +265,7 @@ export class KubeApi<
     this.apiGroup = apiGroup;
     this.apiVersion = apiVersion;
     this.apiResource = resource;
-    this.request = request ?? asLegacyGlobalForExtensionApi(apiKubeInjectionToken);
+    this.request = request;
     this.objectConstructor = objectConstructor;
     legacyRegisterApi(this);
   }
