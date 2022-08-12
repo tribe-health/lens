@@ -11,7 +11,7 @@ import { execHelm } from "./exec";
 import type { SetRequired } from "type-fest";
 import { assert } from "console";
 import type { HelmRepo } from "../../common/helm/helm-repo";
-import type { RepoHelmChartList } from "../../common/k8s-api/endpoints/helm-charts.api/list.injectable";
+import type { RepoHelmChartList } from "../../common/k8s-api/endpoints/helm-charts.api/request-charts.injectable";
 
 interface ChartCacheEntry {
   data: string; // serialized JSON

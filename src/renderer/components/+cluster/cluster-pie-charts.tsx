@@ -22,7 +22,7 @@ import { withInjectables } from "@ogre-tools/injectable-react";
 import clusterOverviewStoreInjectable from "./cluster-overview-store/cluster-overview-store.injectable";
 import nodeStoreInjectable from "../+nodes/store.injectable";
 import themeStoreInjectable from "../../themes/store.injectable";
-import type { ClusterMetricData } from "../../../common/k8s-api/endpoints/metrics.api/get-cluster-metrics-by-node-names.injectable";
+import type { ClusterMetricData } from "../../../common/k8s-api/endpoints/metrics.api/request-cluster-metrics-by-node-names.injectable";
 
 function createLabels(rawLabelData: [string, number | undefined][]): string[] {
   return rawLabelData.map(([key, value]) => `${key}: ${value?.toFixed(2) || "N/A"}`);
