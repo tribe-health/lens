@@ -10,7 +10,7 @@ import { webContents } from "electron";
 import loggerInjectable from "../../common/logger.injectable";
 import appNameInjectable from "../app-paths/app-name/app-name.injectable";
 import electronMenuItemsInjectable from "./electron-menu-items.injectable";
-import updatingIsEnabledInjectable from "../../features/application-update/main/updating-is-enabled.injectable";
+import updatingIsEnabledInjectable from "../../features/application-update/main/updating-is-enabled/updating-is-enabled.injectable";
 import navigateToPreferencesInjectable from "../../common/front-end-routing/routes/preferences/navigate-to-preferences.injectable";
 import navigateToExtensionsInjectable from "../../common/front-end-routing/routes/extensions/navigate-to-extensions.injectable";
 import navigateToCatalogInjectable from "../../common/front-end-routing/routes/catalog/navigate-to-catalog.injectable";
@@ -22,7 +22,7 @@ import { computed } from "mobx";
 import showAboutInjectable from "./show-about.injectable";
 import reloadCurrentApplicationWindowInjectable from "../start-main-application/lens-window/reload-current-application-window.injectable";
 import showApplicationWindowInjectable from "../start-main-application/lens-window/show-application-window.injectable";
-import processCheckingForUpdatesInjectable from "../../features/application-update/main/check-for-updates/process-checking-for-updates.injectable";
+import processCheckingForUpdatesInjectable from "../../features/application-update/main/process-checking-for-updates.injectable";
 import openLinkInBrowserInjectable from "../../common/utils/open-link-in-browser.injectable";
 
 function ignoreIf(check: boolean, menuItems: MenuItemOpts[]) {
