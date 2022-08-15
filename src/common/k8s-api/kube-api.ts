@@ -15,7 +15,7 @@ import type { IKubeWatchEvent } from "./kube-watch-event";
 import type { KubeJsonApiData, KubeJsonApi } from "./kube-json-api";
 import type { Disposer } from "../utils";
 import { isDefined, noop, WrappedAbortController } from "../utils";
-import type { RequestInit } from "node-fetch";
+import type { RequestInit, Response } from "node-fetch";
 import type { Patch } from "rfc6902";
 import assert from "assert";
 import type { PartialDeep } from "type-fest";
@@ -146,16 +146,37 @@ export interface KubeApiResourceList {
 
 export type PropagationPolicy = undefined | "Orphan" | "Foreground" | "Background";
 
-export type KubeApiWatchCallback<T extends KubeJsonApiData = KubeJsonApiData> = (data: IKubeWatchEvent<T>, error: any) => void;
+export type KubeApiWatchCallback<T extends KubeJsonApiData = KubeJsonApiData> = (data: IKubeWatchEvent<T> | null, error: KubeStatus | Response | null | any) => void;
 
 export interface KubeApiWatchOptions<Object extends KubeObject, Data extends KubeJsonApiDataFor<Object>> {
-  namespace: string;
+  /**
+   * If the resource is namespaced then the default is `"default"`
+   */
+  namespace?: string;
+
+  /**
+   * This will be called when either an error occurs or some data is received
+   */
   callback?: KubeApiWatchCallback<Data>;
+
+  /**
+   * This is a way of aborting the request
+   */
   abortController?: AbortController;
+
+  /**
+   * The ID used for tracking within logs
+   */
   watchId?: string;
+
+  /**
+   * @default false
+   */
   retry?: boolean;
 
-  // timeout in seconds
+  /**
+   * timeout in seconds
+   */
   timeout?: number;
 }
 
@@ -282,13 +303,14 @@ export class KubeApi<
    */
   private async getLatestApiPrefixGroup() {
     // Note that this.fullApiPathname is the "full" url, whereas this.apiBase is parsed
-    const apiBases = [this.fullApiPathname, this.objectConstructor.apiBase, ...this.fallbackApiBases ?? []];
+    const rawApiBases = [
+      this.fullApiPathname,
+      this.objectConstructor.apiBase,
+      ...this.fallbackApiBases ?? [],
+    ].filter(isDefined);
+    const apiBases = new Set(rawApiBases);
 
     for (const apiUrl of apiBases) {
-      if (!apiUrl) {
-        continue;
-      }
-
       try {
         // Split e.g. "/apis/extensions/v1beta1/ingresses" to parts
         const { apiPrefix, apiGroup, apiVersionWithGroup, resource } = parseKubeApi(apiUrl);
@@ -374,11 +396,17 @@ export class KubeApi<
   }
 
   getUrl({ name, namespace }: Partial<ResourceDescriptor> = {}, query?: Partial<KubeApiQueryParams>) {
+    if (!this.isNamespaced && namespace) {
+      throw new Error("Tried to delete cluster scoped resource in a namespace");
+    }
+
     const resourcePath = createKubeApiURL({
       apiPrefix: this.apiPrefix,
       apiVersion: this.apiVersionWithGroup,
       resource: this.apiResource,
-      namespace: this.isNamespaced ? namespace ?? "default" : undefined,
+      namespace: this.isNamespaced
+        ? namespace || "default"
+        : undefined,
       name,
     });
 
@@ -459,7 +487,7 @@ export class KubeApi<
     });
   }
 
-  async list({ namespace = "", reqInit }: KubeApiListOptions = {}, query?: KubeApiQueryParams): Promise<Object[] | null> {
+  async list({ namespace, reqInit }: KubeApiListOptions = {}, query?: KubeApiQueryParams): Promise<Object[] | null> {
     await this.checkPreferredVersion();
 
     const url = this.getUrl({ namespace });
@@ -534,6 +562,10 @@ export class KubeApi<
     return parsed;
   }
 
+  async patch(desc: ResourceDescriptor, data: PartialDeep<Object>): Promise<Object | null>;
+  async patch(desc: ResourceDescriptor, data: PartialDeep<Object>, strategy: "strategic" | "merge"): Promise<Object | null>;
+  async patch(desc: ResourceDescriptor, data: Patch, strategy: "json"): Promise<Object | null>;
+  async patch(desc: ResourceDescriptor, data: PartialDeep<Object> | Patch, strategy: KubeApiPatchType): Promise<Object | null>;
   async patch(desc: ResourceDescriptor, data: PartialDeep<Object> | Patch, strategy: KubeApiPatchType = "strategic"): Promise<Object | null> {
     await this.checkPreferredVersion();
     const apiUrl = this.getUrl(desc);
@@ -563,7 +595,7 @@ export class KubeApi<
     });
   }
 
-  getWatchUrl(namespace = "", query: KubeApiQueryParams = {}) {
+  getWatchUrl(namespace?: string, query: KubeApiQueryParams = {}) {
     return this.getUrl({ namespace }, {
       watch: 1,
       resourceVersion: this.getResourceVersion(namespace),
@@ -571,14 +603,19 @@ export class KubeApi<
     });
   }
 
-  watch(opts: KubeApiWatchOptions<Object, Data> = { namespace: "", retry: false }): () => void {
+  watch(opts?: KubeApiWatchOptions<Object, Data>): () => void {
     let errorReceived = false;
     let timedRetry: NodeJS.Timeout;
-    const { namespace, callback = noop, retry, timeout } = opts;
-    const { watchId = `${this.kind.toLowerCase()}-${this.watchId++}` } = opts;
+    const {
+      namespace,
+      callback = noop as KubeApiWatchCallback<Data>,
+      retry = false,
+      timeout,
+      watchId = `${this.kind.toLowerCase()}-${this.watchId++}`,
+    } = opts ?? {};
 
     // Create AbortController for this request
-    const abortController = new WrappedAbortController(opts.abortController);
+    const abortController = new WrappedAbortController(opts?.abortController);
 
     abortController.signal.addEventListener("abort", () => {
       logger.info(`[KUBE-API] watch (${watchId}) aborted ${watchUrl}`);
@@ -649,7 +686,7 @@ export class KubeApi<
 
         byline(response.body).on("data", (line) => {
           try {
-            const event = JSON.parse(line) as IKubeWatchEvent<KubeJsonApiData<KubeObjectMetadata>>;
+            const event = JSON.parse(line) as IKubeWatchEvent<Data>;
 
             if (event.type === "ERROR" && isKubeStatusData(event.object)) {
               errorReceived = true;
