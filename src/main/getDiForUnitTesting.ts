@@ -67,16 +67,12 @@ import platformInjectable from "../common/vars/platform.injectable";
 import productNameInjectable from "./app-paths/app-name/product-name.injectable";
 import electronQuitAndInstallUpdateInjectable from "./electron-app/features/electron-quit-and-install-update.injectable";
 import electronUpdaterIsActiveInjectable from "./electron-app/features/electron-updater-is-active.injectable";
-import publishIsConfiguredInjectable from "../features/application-update/main/publish-is-configured.injectable";
-import checkForPlatformUpdatesInjectable from "../features/application-update/main/check-for-platform-updates/check-for-platform-updates.injectable";
 import baseBundledBinariesDirectoryInjectable from "../common/vars/base-bundled-binaries-dir.injectable";
 import setUpdateOnQuitInjectable from "./electron-app/features/set-update-on-quit.injectable";
-import downloadPlatformUpdateInjectable from "../features/application-update/main/download-platform-update/download-platform-update.injectable";
 import startCatalogSyncInjectable from "./catalog-sync-to-renderer/start-catalog-sync.injectable";
 import startKubeConfigSyncInjectable from "./start-main-application/runnables/kube-config-sync/start-kube-config-sync.injectable";
 import appVersionInjectable from "../common/vars/app-version.injectable";
 import getRandomIdInjectable from "../common/utils/get-random-id.injectable";
-import periodicalCheckForUpdatesInjectable from "../features/application-update/main/periodical-check-for-updates/periodical-check-for-updates.injectable";
 import execFileInjectable from "../common/fs/exec-file.injectable";
 import normalizedPlatformArchitectureInjectable from "../common/vars/normalized-platform-architecture.injectable";
 import getHelmChartInjectable from "./helm/helm-service/get-helm-chart.injectable";
@@ -158,8 +154,6 @@ export function getDiForUnitTesting(opts: { doGeneralOverrides?: boolean } = {})
     di.override(lensResourcesDirInjectable, () => "/irrelevant");
 
     di.override(applicationMenuInjectable, () => ({ start: () => {}, stop: () => {} }));
-
-    di.override(periodicalCheckForUpdatesInjectable, () => ({ start: () => {}, stop: () => {}, started: false }));
 
     overrideFunctionalInjectables(di, [
       getHelmChartInjectable,
@@ -257,12 +251,7 @@ const overrideElectronFeatures = (di: DiContainer) => {
   di.override(syncThemeFromOperatingSystemInjectable, () => ({ start: () => {}, stop: () => {} }));
   di.override(electronQuitAndInstallUpdateInjectable, () => () => {});
   di.override(setUpdateOnQuitInjectable, () => () => {});
-  di.override(downloadPlatformUpdateInjectable, () => async () => ({ downloadWasSuccessful: true }));
   di.override(focusApplicationInjectable, () => () => {});
-
-  di.override(checkForPlatformUpdatesInjectable, () => () => {
-    throw new Error("Tried to check for platform updates without explicit override.");
-  });
 
   di.override(
     getElectronAppPathInjectable,
@@ -270,7 +259,6 @@ const overrideElectronFeatures = (di: DiContainer) => {
   );
 
   di.override(setElectronAppPathInjectable, () => () => {});
-  di.override(publishIsConfiguredInjectable, () => false);
   di.override(electronUpdaterIsActiveInjectable, () => false);
 };
 

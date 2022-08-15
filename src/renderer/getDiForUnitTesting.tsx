@@ -64,7 +64,6 @@ import portForwardDialogClusterFrameChildComponentInjectable from "./port-forwar
 import setupSystemCaInjectable from "./frames/root-frame/setup-system-ca.injectable";
 import extensionShouldBeEnabledForClusterFrameInjectable from "./extension-loader/extension-should-be-enabled-for-cluster-frame.injectable";
 import { asyncComputed } from "@ogre-tools/injectable-react";
-import forceUpdateModalRootFrameComponentInjectable from "../features/application-update/renderer/force-update-modal/force-update-modal-root-frame-component.injectable";
 import legacyOnChannelListenInjectable from "./ipc/legacy-channel-listen.injectable";
 import getEntitySettingCommandsInjectable from "./components/command-palette/registered-commands/get-entity-setting-commands.injectable";
 import storageSaveDelayInjectable from "./utils/create-storage/storage-save-delay.injectable";
@@ -124,12 +123,6 @@ export const getDiForUnitTesting = (opts: { doGeneralOverrides?: boolean } = {})
 
     // TODO: remove when entity settings registry is refactored
     di.override(getEntitySettingCommandsInjectable, () => () => []);
-
-    di.override(forceUpdateModalRootFrameComponentInjectable, () => ({
-      id: "force-update-modal",
-      Component: () => null,
-      shouldRender: computed(() => false),
-    }));
 
     // TODO: Remove after "LensRendererExtension.isEnabledForCluster" is removed
     di.override(extensionShouldBeEnabledForClusterFrameInjectable, () =>
