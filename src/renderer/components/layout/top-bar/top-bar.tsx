@@ -21,7 +21,6 @@ import routeIsActiveInjectable from "../../../routes/route-is-active.injectable"
 import { UpdateButton } from "../../../../features/application-update/child-features/application-update-using-top-bar/renderer/update-button";
 import topBarPrevEnabledInjectable from "./prev-enabled.injectable";
 import topBarNextEnabledInjectable from "./next-enabled.injectable";
-import openAppContextMenuInjectable from "./open-app-context-menu.injectable";
 import goBackInjectable from "./go-back.injectable";
 import goForwardInjectable from "./go-forward.injectable";
 import closeWindowInjectable from "./close-window.injectable";
@@ -40,7 +39,6 @@ interface Dependencies {
   isLinux: boolean;
   prevEnabled: IComputedValue<Boolean>;
   nextEnabled: IComputedValue<Boolean>;
-  openAppContextMenu: () => void;
   goBack: () => void;
   goForward: () => void;
   minimizeWindow: () => void;
@@ -58,7 +56,6 @@ const NonInjectedTopBar = observer(({
   isLinux,
   prevEnabled,
   nextEnabled,
-  openAppContextMenu,
   goBack,
   goForward,
   closeWindow,
@@ -92,22 +89,6 @@ const NonInjectedTopBar = observer(({
           return <Component key={item.id} />;
         })}
 
-        {(isWindows || isLinux) && (
-          <div className={styles.winMenu}>
-            <div onClick={openAppContextMenu} data-testid="window-menu">
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                shapeRendering="crispEdges"
-              >
-                <path fill="currentColor" d="M0,8.5h12v1H0V8.5z" />
-                <path fill="currentColor" d="M0,5.5h12v1H0V5.5z" />
-                <path fill="currentColor" d="M0,2.5h12v1H0V2.5z" />
-              </svg>
-            </div>
-          </div>
-        )}
         <Icon
           data-testid="home-button"
           material="home"
@@ -198,11 +179,12 @@ export const TopBar = withInjectables<Dependencies>(NonInjectedTopBar, {
     isWindows: di.inject(isWindowsInjectable),
     prevEnabled: di.inject(topBarPrevEnabledInjectable),
     nextEnabled: di.inject(topBarNextEnabledInjectable),
+
     catalogRouteIsActive: di.inject(
       routeIsActiveInjectable,
       di.inject(catalogRouteInjectable),
     ),
-    openAppContextMenu: di.inject(openAppContextMenuInjectable),
+
     goBack: di.inject(goBackInjectable),
     goForward: di.inject(goForwardInjectable),
     closeWindow: di.inject(closeWindowInjectable),
