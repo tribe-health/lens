@@ -46,9 +46,6 @@ import platformInjectable from "../common/vars/platform.injectable";
 import startTopbarStateSyncInjectable from "./components/layout/top-bar/start-state-sync.injectable";
 import { registerMobX } from "@ogre-tools/injectable-extension-for-mobx";
 import watchHistoryStateInjectable from "./remote-helpers/watch-history-state.injectable";
-import closeWindowInjectable from "./components/layout/top-bar/close-window.injectable";
-import maximizeWindowInjectable from "./components/layout/top-bar/maximize-window.injectable";
-import toggleMaximizeWindowInjectable from "./components/layout/top-bar/toggle-maximize-window.injectable";
 import type { HotbarStore } from "../common/hotbars/store";
 import cronJobTriggerDialogClusterFrameChildComponentInjectable from "./components/+workloads-cronjobs/cron-job-trigger-dialog-cluster-frame-child-component.injectable";
 import deploymentScaleDialogClusterFrameChildComponentInjectable from "./components/+workloads-deployments/scale/deployment-scale-dialog-cluster-frame-child-component.injectable";
@@ -147,9 +144,6 @@ export const getDiForUnitTesting = (opts: { doGeneralOverrides?: boolean } = {})
     });
 
     di.override(watchHistoryStateInjectable, () => () => () => {});
-    di.override(closeWindowInjectable, () => () => {});
-    di.override(maximizeWindowInjectable, () => () => {});
-    di.override(toggleMaximizeWindowInjectable, () => () => {});
 
     di.override(ipcRendererInjectable, () => ({
       invoke: () => {},

@@ -65,9 +65,6 @@ exports[`encourage user to update when sufficient time passed since update was d
             </i>
           </button>
         </div>
-        <div
-          class="items"
-        />
       </div>
       <main>
         <div
@@ -267,9 +264,6 @@ exports[`encourage user to update when sufficient time passed since update was d
             </span>
           </i>
         </div>
-        <div
-          class="items"
-        />
       </div>
       <main>
         <div
