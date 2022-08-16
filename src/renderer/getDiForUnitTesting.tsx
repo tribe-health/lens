@@ -185,10 +185,7 @@ export const getDiForUnitTesting = (opts: { doGeneralOverrides?: boolean } = {})
     }) as unknown as HotbarStore);
 
     di.override(fileSystemProvisionerStoreInjectable, () => ({}) as FileSystemProvisionerStore);
-
     di.override(setupSystemCaInjectable, () => ({ run: () => {} }));
-    di.override(provideInitialValuesForSyncBoxesInjectable, () => ({ run: () => {} }));
-
     di.override(defaultShellInjectable, () => "some-default-shell");
 
     di.override(
