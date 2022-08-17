@@ -11,44 +11,62 @@ exports[`preferences - closing-preferences given accessing preferences directly 
       <div
         class="items"
       >
-        <i
-          class="Icon material interactive focusable"
-          data-testid="home-button"
-          tabindex="0"
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="home"
+          <i
+            class="Icon material interactive focusable"
+            data-testid="home-button"
+            tabindex="0"
           >
-            home
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-back"
+            <span
+              class="icon"
+              data-icon-name="home"
+            >
+              home
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_back"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-back"
           >
-            arrow_back
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-forward"
+            <span
+              class="icon"
+              data-icon-name="arrow_back"
+            >
+              arrow_back
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_forward"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-forward"
           >
-            arrow_forward
-          </span>
-        </i>
+            <span
+              class="icon"
+              data-icon-name="arrow_forward"
+            >
+              arrow_forward
+            </span>
+          </i>
+        </div>
+        <div
+          class="separator"
+        />
       </div>
-      <div
-        class="items"
-      />
     </div>
     <main>
       <div
@@ -661,44 +679,62 @@ exports[`preferences - closing-preferences given accessing preferences directly 
       <div
         class="items"
       >
-        <i
-          class="Icon material interactive focusable"
-          data-testid="home-button"
-          tabindex="0"
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="home"
+          <i
+            class="Icon material interactive focusable"
+            data-testid="home-button"
+            tabindex="0"
           >
-            home
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-back"
+            <span
+              class="icon"
+              data-icon-name="home"
+            >
+              home
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_back"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-back"
           >
-            arrow_back
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-forward"
+            <span
+              class="icon"
+              data-icon-name="arrow_back"
+            >
+              arrow_back
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_forward"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-forward"
           >
-            arrow_forward
-          </span>
-        </i>
+            <span
+              class="icon"
+              data-icon-name="arrow_forward"
+            >
+              arrow_forward
+            </span>
+          </i>
+        </div>
+        <div
+          class="separator"
+        />
       </div>
-      <div
-        class="items"
-      />
     </div>
     <main>
       <div
@@ -915,44 +951,62 @@ exports[`preferences - closing-preferences given accessing preferences directly 
       <div
         class="items"
       >
-        <i
-          class="Icon material interactive focusable"
-          data-testid="home-button"
-          tabindex="0"
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="home"
+          <i
+            class="Icon material interactive focusable"
+            data-testid="home-button"
+            tabindex="0"
           >
-            home
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-back"
+            <span
+              class="icon"
+              data-icon-name="home"
+            >
+              home
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_back"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-back"
           >
-            arrow_back
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-forward"
+            <span
+              class="icon"
+              data-icon-name="arrow_back"
+            >
+              arrow_back
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_forward"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-forward"
           >
-            arrow_forward
-          </span>
-        </i>
+            <span
+              class="icon"
+              data-icon-name="arrow_forward"
+            >
+              arrow_forward
+            </span>
+          </i>
+        </div>
+        <div
+          class="separator"
+        />
       </div>
-      <div
-        class="items"
-      />
     </div>
     <main>
       <div
@@ -1035,44 +1089,62 @@ exports[`preferences - closing-preferences given accessing preferences directly 
       <div
         class="items"
       >
-        <i
-          class="Icon material interactive focusable"
-          data-testid="home-button"
-          tabindex="0"
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="home"
+          <i
+            class="Icon material interactive focusable"
+            data-testid="home-button"
+            tabindex="0"
           >
-            home
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-back"
+            <span
+              class="icon"
+              data-icon-name="home"
+            >
+              home
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_back"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-back"
           >
-            arrow_back
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-forward"
+            <span
+              class="icon"
+              data-icon-name="arrow_back"
+            >
+              arrow_back
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_forward"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-forward"
           >
-            arrow_forward
-          </span>
-        </i>
+            <span
+              class="icon"
+              data-icon-name="arrow_forward"
+            >
+              arrow_forward
+            </span>
+          </i>
+        </div>
+        <div
+          class="separator"
+        />
       </div>
-      <div
-        class="items"
-      />
     </div>
     <main>
       <div
@@ -1155,44 +1227,62 @@ exports[`preferences - closing-preferences given already in a page and then navi
       <div
         class="items"
       >
-        <i
-          class="Icon material interactive focusable"
-          data-testid="home-button"
-          tabindex="0"
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="home"
+          <i
+            class="Icon material interactive focusable"
+            data-testid="home-button"
+            tabindex="0"
           >
-            home
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-back"
+            <span
+              class="icon"
+              data-icon-name="home"
+            >
+              home
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_back"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-back"
           >
-            arrow_back
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-forward"
+            <span
+              class="icon"
+              data-icon-name="arrow_back"
+            >
+              arrow_back
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_forward"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-forward"
           >
-            arrow_forward
-          </span>
-        </i>
+            <span
+              class="icon"
+              data-icon-name="arrow_forward"
+            >
+              arrow_forward
+            </span>
+          </i>
+        </div>
+        <div
+          class="separator"
+        />
       </div>
-      <div
-        class="items"
-      />
     </div>
     <main>
       <div
@@ -1805,44 +1895,62 @@ exports[`preferences - closing-preferences given already in a page and then navi
       <div
         class="items"
       >
-        <i
-          class="Icon material interactive focusable"
-          data-testid="home-button"
-          tabindex="0"
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="home"
+          <i
+            class="Icon material interactive focusable"
+            data-testid="home-button"
+            tabindex="0"
           >
-            home
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-back"
+            <span
+              class="icon"
+              data-icon-name="home"
+            >
+              home
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_back"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-back"
           >
-            arrow_back
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-forward"
+            <span
+              class="icon"
+              data-icon-name="arrow_back"
+            >
+              arrow_back
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_forward"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-forward"
           >
-            arrow_forward
-          </span>
-        </i>
+            <span
+              class="icon"
+              data-icon-name="arrow_forward"
+            >
+              arrow_forward
+            </span>
+          </i>
+        </div>
+        <div
+          class="separator"
+        />
       </div>
-      <div
-        class="items"
-      />
     </div>
     <main>
       <div
@@ -2059,44 +2167,62 @@ exports[`preferences - closing-preferences given already in a page and then navi
       <div
         class="items"
       >
-        <i
-          class="Icon material interactive focusable"
-          data-testid="home-button"
-          tabindex="0"
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="home"
+          <i
+            class="Icon material interactive focusable"
+            data-testid="home-button"
+            tabindex="0"
           >
-            home
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-back"
+            <span
+              class="icon"
+              data-icon-name="home"
+            >
+              home
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_back"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-back"
           >
-            arrow_back
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-forward"
+            <span
+              class="icon"
+              data-icon-name="arrow_back"
+            >
+              arrow_back
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_forward"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-forward"
           >
-            arrow_forward
-          </span>
-        </i>
+            <span
+              class="icon"
+              data-icon-name="arrow_forward"
+            >
+              arrow_forward
+            </span>
+          </i>
+        </div>
+        <div
+          class="separator"
+        />
       </div>
-      <div
-        class="items"
-      />
     </div>
     <main>
       <div
@@ -2313,44 +2439,62 @@ exports[`preferences - closing-preferences given already in a page and then navi
       <div
         class="items"
       >
-        <i
-          class="Icon material interactive focusable"
-          data-testid="home-button"
-          tabindex="0"
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="home"
+          <i
+            class="Icon material interactive focusable"
+            data-testid="home-button"
+            tabindex="0"
           >
-            home
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-back"
+            <span
+              class="icon"
+              data-icon-name="home"
+            >
+              home
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_back"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-back"
           >
-            arrow_back
-          </span>
-        </i>
-        <i
-          class="Icon material interactive disabled focusable"
-          data-testid="history-forward"
+            <span
+              class="icon"
+              data-icon-name="arrow_back"
+            >
+              arrow_back
+            </span>
+          </i>
+        </div>
+        <div
+          class="size-sm"
+        />
+        <div
+          class="preventedDragging"
         >
-          <span
-            class="icon"
-            data-icon-name="arrow_forward"
+          <i
+            class="Icon material interactive disabled focusable"
+            data-testid="history-forward"
           >
-            arrow_forward
-          </span>
-        </i>
+            <span
+              class="icon"
+              data-icon-name="arrow_forward"
+            >
+              arrow_forward
+            </span>
+          </i>
+        </div>
+        <div
+          class="separator"
+        />
       </div>
-      <div
-        class="items"
-      />
     </div>
     <main>
       <div

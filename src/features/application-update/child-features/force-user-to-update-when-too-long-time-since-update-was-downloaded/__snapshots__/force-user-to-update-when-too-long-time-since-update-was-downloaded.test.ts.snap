@@ -12,62 +12,84 @@ exports[`force user to update when too long since update was downloaded when app
         <div
           class="items"
         >
-          <i
-            class="Icon material interactive focusable"
-            data-testid="home-button"
-            tabindex="0"
+          <div
+            class="preventedDragging"
           >
-            <span
-              class="icon"
-              data-icon-name="home"
-            >
-              home
-            </span>
-          </i>
-          <i
-            class="Icon material interactive disabled focusable"
-            data-testid="history-back"
-          >
-            <span
-              class="icon"
-              data-icon-name="arrow_back"
-            >
-              arrow_back
-            </span>
-          </i>
-          <i
-            class="Icon material interactive disabled focusable"
-            data-testid="history-forward"
-          >
-            <span
-              class="icon"
-              data-icon-name="arrow_forward"
-            >
-              arrow_forward
-            </span>
-          </i>
-          <button
-            class="updateButton"
-            data-testid="update-button"
-            data-warning-level="light"
-            id="update-lens-button"
-          >
-            Update
             <i
-              class="Icon icon material focusable"
+              class="Icon material interactive focusable"
+              data-testid="home-button"
+              tabindex="0"
             >
               <span
                 class="icon"
-                data-icon-name="arrow_drop_down"
+                data-icon-name="home"
               >
-                arrow_drop_down
+                home
               </span>
             </i>
-          </button>
+          </div>
+          <div
+            class="size-sm"
+          />
+          <div
+            class="preventedDragging"
+          >
+            <i
+              class="Icon material interactive disabled focusable"
+              data-testid="history-back"
+            >
+              <span
+                class="icon"
+                data-icon-name="arrow_back"
+              >
+                arrow_back
+              </span>
+            </i>
+          </div>
+          <div
+            class="size-sm"
+          />
+          <div
+            class="preventedDragging"
+          >
+            <i
+              class="Icon material interactive disabled focusable"
+              data-testid="history-forward"
+            >
+              <span
+                class="icon"
+                data-icon-name="arrow_forward"
+              >
+                arrow_forward
+              </span>
+            </i>
+          </div>
+          <div
+            class="separator"
+          />
+          <div
+            class="preventedDragging"
+          >
+            <button
+              class="updateButton"
+              data-testid="update-button"
+              data-warning-level="light"
+              id="update-lens-button"
+            >
+              Update
+              <i
+                class="Icon icon material focusable"
+              >
+                <span
+                  class="icon"
+                  data-icon-name="arrow_drop_down"
+                >
+                  arrow_drop_down
+                </span>
+              </i>
+            </button>
+          </div>
         </div>
-        <div
-          class="items"
-        />
       </div>
       <main>
         <div
@@ -232,62 +254,84 @@ exports[`force user to update when too long since update was downloaded when app
         <div
           class="items"
         >
-          <i
-            class="Icon material interactive focusable"
-            data-testid="home-button"
-            tabindex="0"
+          <div
+            class="preventedDragging"
           >
-            <span
-              class="icon"
-              data-icon-name="home"
-            >
-              home
-            </span>
-          </i>
-          <i
-            class="Icon material interactive disabled focusable"
-            data-testid="history-back"
-          >
-            <span
-              class="icon"
-              data-icon-name="arrow_back"
-            >
-              arrow_back
-            </span>
-          </i>
-          <i
-            class="Icon material interactive disabled focusable"
-            data-testid="history-forward"
-          >
-            <span
-              class="icon"
-              data-icon-name="arrow_forward"
-            >
-              arrow_forward
-            </span>
-          </i>
-          <button
-            class="updateButton"
-            data-testid="update-button"
-            data-warning-level="light"
-            id="update-lens-button"
-          >
-            Update
             <i
-              class="Icon icon material focusable"
+              class="Icon material interactive focusable"
+              data-testid="home-button"
+              tabindex="0"
             >
               <span
                 class="icon"
-                data-icon-name="arrow_drop_down"
+                data-icon-name="home"
               >
-                arrow_drop_down
+                home
               </span>
             </i>
-          </button>
+          </div>
+          <div
+            class="size-sm"
+          />
+          <div
+            class="preventedDragging"
+          >
+            <i
+              class="Icon material interactive disabled focusable"
+              data-testid="history-back"
+            >
+              <span
+                class="icon"
+                data-icon-name="arrow_back"
+              >
+                arrow_back
+              </span>
+            </i>
+          </div>
+          <div
+            class="size-sm"
+          />
+          <div
+            class="preventedDragging"
+          >
+            <i
+              class="Icon material interactive disabled focusable"
+              data-testid="history-forward"
+            >
+              <span
+                class="icon"
+                data-icon-name="arrow_forward"
+              >
+                arrow_forward
+              </span>
+            </i>
+          </div>
+          <div
+            class="separator"
+          />
+          <div
+            class="preventedDragging"
+          >
+            <button
+              class="updateButton"
+              data-testid="update-button"
+              data-warning-level="light"
+              id="update-lens-button"
+            >
+              Update
+              <i
+                class="Icon icon material focusable"
+              >
+                <span
+                  class="icon"
+                  data-icon-name="arrow_drop_down"
+                >
+                  arrow_drop_down
+                </span>
+              </i>
+            </button>
+          </div>
         </div>
-        <div
-          class="items"
-        />
       </div>
       <main>
         <div
@@ -499,62 +543,84 @@ exports[`force user to update when too long since update was downloaded when app
         <div
           class="items"
         >
-          <i
-            class="Icon material interactive focusable"
-            data-testid="home-button"
-            tabindex="0"
+          <div
+            class="preventedDragging"
           >
-            <span
-              class="icon"
-              data-icon-name="home"
-            >
-              home
-            </span>
-          </i>
-          <i
-            class="Icon material interactive disabled focusable"
-            data-testid="history-back"
-          >
-            <span
-              class="icon"
-              data-icon-name="arrow_back"
-            >
-              arrow_back
-            </span>
-          </i>
-          <i
-            class="Icon material interactive disabled focusable"
-            data-testid="history-forward"
-          >
-            <span
-              class="icon"
-              data-icon-name="arrow_forward"
-            >
-              arrow_forward
-            </span>
-          </i>
-          <button
-            class="updateButton"
-            data-testid="update-button"
-            data-warning-level="light"
-            id="update-lens-button"
-          >
-            Update
             <i
-              class="Icon icon material focusable"
+              class="Icon material interactive focusable"
+              data-testid="home-button"
+              tabindex="0"
             >
               <span
                 class="icon"
-                data-icon-name="arrow_drop_down"
+                data-icon-name="home"
               >
-                arrow_drop_down
+                home
               </span>
             </i>
-          </button>
+          </div>
+          <div
+            class="size-sm"
+          />
+          <div
+            class="preventedDragging"
+          >
+            <i
+              class="Icon material interactive disabled focusable"
+              data-testid="history-back"
+            >
+              <span
+                class="icon"
+                data-icon-name="arrow_back"
+              >
+                arrow_back
+              </span>
+            </i>
+          </div>
+          <div
+            class="size-sm"
+          />
+          <div
+            class="preventedDragging"
+          >
+            <i
+              class="Icon material interactive disabled focusable"
+              data-testid="history-forward"
+            >
+              <span
+                class="icon"
+                data-icon-name="arrow_forward"
+              >
+                arrow_forward
+              </span>
+            </i>
+          </div>
+          <div
+            class="separator"
+          />
+          <div
+            class="preventedDragging"
+          >
+            <button
+              class="updateButton"
+              data-testid="update-button"
+              data-warning-level="light"
+              id="update-lens-button"
+            >
+              Update
+              <i
+                class="Icon icon material focusable"
+              >
+                <span
+                  class="icon"
+                  data-icon-name="arrow_drop_down"
+                >
+                  arrow_drop_down
+                </span>
+              </i>
+            </button>
+          </div>
         </div>
-        <div
-          class="items"
-        />
       </div>
       <main>
         <div
