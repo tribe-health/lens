@@ -6,6 +6,8 @@
 import { getGlobalOverride } from "../../common/test-utils/get-global-override";
 import fetchImplInjectable from "./fetch-impl.injectable";
 
-export default getGlobalOverride(fetchImplInjectable, async () => async () => {
-  throw new Error("tried to fetch resource without override");
-});
+export default getGlobalOverride(fetchImplInjectable, async () => ({
+  default: async () => {
+    throw new Error("tried to fetch resource without override");
+  },
+} as any));
