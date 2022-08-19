@@ -463,6 +463,7 @@ exports[`disable sidebar items when cluster is not relevant given extension shou
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -472,7 +473,9 @@ exports[`disable sidebar items when cluster is not relevant given extension shou
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>
@@ -983,6 +986,7 @@ exports[`disable sidebar items when cluster is not relevant given extension shou
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -992,7 +996,9 @@ exports[`disable sidebar items when cluster is not relevant given extension shou
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>
@@ -1503,6 +1509,7 @@ exports[`disable sidebar items when cluster is not relevant given not yet known 
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -1512,7 +1519,9 @@ exports[`disable sidebar items when cluster is not relevant given not yet known 
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>

@@ -318,6 +318,7 @@ exports[`show status for a kube object given application starts and in test page
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -327,7 +328,9 @@ exports[`show status for a kube object given application starts and in test page
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>
@@ -753,6 +756,7 @@ exports[`show status for a kube object given application starts and in test page
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -762,7 +766,9 @@ exports[`show status for a kube object given application starts and in test page
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>
@@ -1188,6 +1194,7 @@ exports[`show status for a kube object given application starts and in test page
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -1197,7 +1204,9 @@ exports[`show status for a kube object given application starts and in test page
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>
@@ -1583,6 +1592,7 @@ exports[`show status for a kube object given application starts and in test page
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -1592,7 +1602,9 @@ exports[`show status for a kube object given application starts and in test page
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>
@@ -1978,6 +1990,7 @@ exports[`show status for a kube object given application starts and in test page
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -1987,7 +2000,9 @@ exports[`show status for a kube object given application starts and in test page
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>
@@ -2413,6 +2428,7 @@ exports[`show status for a kube object given application starts and in test page
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -2422,7 +2438,9 @@ exports[`show status for a kube object given application starts and in test page
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>

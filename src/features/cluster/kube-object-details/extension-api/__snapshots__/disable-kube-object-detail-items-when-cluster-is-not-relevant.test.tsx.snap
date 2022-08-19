@@ -381,6 +381,7 @@ exports[`disable kube object detail items when cluster is not relevant given ext
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -390,7 +391,9 @@ exports[`disable kube object detail items when cluster is not relevant given ext
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>
@@ -877,6 +880,7 @@ exports[`disable kube object detail items when cluster is not relevant given ext
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -886,7 +890,9 @@ exports[`disable kube object detail items when cluster is not relevant given ext
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>
@@ -1373,6 +1379,7 @@ exports[`disable kube object detail items when cluster is not relevant given not
                       >
                         <i
                           class="Icon material interactive focusable small"
+                          data-testid="dock-tab-close-for-terminal"
                           tabindex="0"
                         >
                           <span
@@ -1382,7 +1389,9 @@ exports[`disable kube object detail items when cluster is not relevant given not
                             close
                           </span>
                         </i>
-                        <div>
+                        <div
+                          data-testid="tooltip-content-for-dock-tab-close-for-terminal"
+                        >
                           Close ⌘+W
                         </div>
                       </div>
